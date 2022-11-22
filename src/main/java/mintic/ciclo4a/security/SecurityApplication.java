@@ -68,5 +68,4 @@ public class SecurityApplication {
 			System.out.println(user + " ya existe");
 		}
 	}
-
 }

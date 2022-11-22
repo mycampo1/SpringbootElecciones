@@ -48,7 +48,7 @@ public class PermissionController {
         Permission permission = permissionRepository.findById(permissionId).orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "El permiso no existe"));
         permissionRepository.delete(permission);
         Map<String, String> data = new HashMap<>();
-        data.put("message", "Permiso '" + permission.getUrl() + "' fue eliminado satisfactoriamente");
+        data.put("message", "El Permiso "+ permission.getMethod()+" de la Url " + permission.getUrl() + " fue eliminado satisfactoriamente");
         return new ResponseEntity<Object>(data, HttpStatus.ACCEPTED);
     }
 }
