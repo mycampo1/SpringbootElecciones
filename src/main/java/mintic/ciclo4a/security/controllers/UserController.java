@@ -15,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.*;
 
 
@@ -70,6 +71,7 @@ public class UserController implements UserDetailsService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "El usuario no existe"));
     }
 
+
     @DeleteMapping("{userId}")
     ResponseEntity<Object> deleteUser(@PathVariable("userId") String userId) {
         User user = userRepository.findById(userId).orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "El usuario no existe"));
@@ -92,3 +94,4 @@ public class UserController implements UserDetailsService {
         return userRepository.save(user);
     }
 }
+
